@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuxuryRides</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="#home">LuxuryRides</a>
+            </div>
+            <label for="menu-toggle" class="visually-hidden">Menu Toggle</label>
+            <input id="menu-toggle" type="checkbox" title="Toggle Menu" />
+            <label class="menu-button-container" for="menu-toggle">
+                <div class="menu-button"></div>
+            </label>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#reservations">Reservations</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#inventory">Inventory</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Welcome to LuxuryRides</h1>
+            <p>Experience the epitome of automotive luxury</p>
+            <a href="#reservations" class="btn">Book Now</a>
+        </div>
+    </section>
+
+    <section id="reservations">
+        <div class="container">
+            <h2>Make a Reservation</h2>
+            <form id="reservation-form">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                    <small class="error" id="name-error"></small>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                    <small class="error" id="email-error"></small>
+                </div>
+                <div class="form-group">
+                    <label for="date">Date</label>
+                    <input type="date" id="date" name="date" required>
+                    <small class="error" id="date-error"></small>
+                </div>
+                <button type="submit" class="btn">Submit Reservation</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>LuxuryRides is dedicated to providing the most exquisite automotive experiences. Our fleet consists of the world's finest vehicles, meticulously maintained to ensure your journey is nothing short of extraordinary.</p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>Get in touch with us for any inquiries or special requests.</p>
+            <p>Email: info@luxuryrides.com</p>
+            <p>Phone: +1 (555) 123-4567</p>
+        </div>
+    </section>
+
+    <section id="inventory">
+        <div class="container">
+            <h2>Our Inventory</h2>
+            <div class="car-grid">
+                <div class="car-card" onclick="showCarDetails('Luxury Sedan', 'Experience unparalleled comfort and style.')">
+                    <img src="/api/placeholder/400/300?text=Luxury+Sedan" alt="Luxury Sedan">
+                    <h3>Luxury Sedan</h3>
+                    <p>Experience unparalleled comfort and style.</p>
+                </div>
+                <div class="car-card" onclick="showCarDetails('Sports Car', 'Feel the thrill of high-performance driving.')">
+                    <img src="/api/placeholder/400/300?text=Sports+Car" alt="Sports Car">
+                    <h3>Sports Car</h3>
+                    <p>Feel the thrill of high-performance driving.</p>
+                </div>
+                <div class="car-card" onclick="showCarDetails('SUV', 'Combine luxury with versatility.')">
+                    <img src="/api/placeholder/400/300?text=SUV" alt="SUV">
+                    <h3>SUV</h3>
+                    <p>Combine luxury with versatility.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 LuxuryRides. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Car Details Modal -->
+    <div id="car-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeCarDetails()">&times;</span>
+            <h2 id="car-title"></h2>
+            <p id="car-description"></p>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

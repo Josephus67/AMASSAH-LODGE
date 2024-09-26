@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMASSAH LODGE</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="#home">AMASSAH LODGE</a>
+            </div>
+            <label for="menu-toggle" class="visually-hidden">Toggle Menu</label>
+            <input id="menu-toggle" type="checkbox" title="Toggle Menu" />
+            <label class="menu-button-container" for="menu-toggle">
+                <div class="menu-button"></div>
+            </label>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#reservations">Reservations</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#inventory">Inventory</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Welcome to LuxuryRides</h1>
+            <p>Experience the epitome of automotive luxury</p>
+            <a href="#reservations" class="btn">Book Now</a>
+        </div>
+    </section>
+
+    <section id="reservations">
+        <div class="container reservation-container">
+            <h2>Make a Reservation</h2>
+            <form id="reservation-form">
+                <!-- Guest Information Section -->
+                <div class="form-section">
+                    <h3>Guest Information</h3>
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <select id="title" name="title" required>
+                            <option value="">Select Title</option>
+                            <option value="Mr">Mr</option>
+                            <option value="Mrs">Mrs</option>
+                            <option value="Miss">Miss</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="first-name">First Name</label>
+                        <input type="text" id="first-name" name="first-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="last-name">Last Name</label>
+                        <input type="text" id="last-name" name="last-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nationality">Nationality</label>
+                        <input type="text" id="nationality" name="nationality" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Gender</label>
+                        <select id="gender" name="gender" required>
+                            <option value="">Select Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="guest-phone">Phone Number</label>
+                        <input type="tel" id="guest-phone" name="guest-phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="guest-email">Email</label>
+                        <input type="email" id="guest-email" name="guest-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="guest-address">Address</label>
+                        <textarea id="guest-address" name="guest-address" required></textarea>
+                    </div>
+                </div>
+    
+                <!-- Next of Kin Section -->
+                <div class="form-section">
+                    <h3>Next of Kin Information</h3>
+                    <div class="form-group">
+                        <label for="next-of-kin">Next of Kin</label>
+                        <input type="text" id="next-of-kin" name="next-of-kin" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="next-kin-phone">Phone Number of Next of Kin</label>
+                        <input type="tel" id="next-kin-phone" name="next-kin-phone" required>
+                    </div>
+                </div>
+    
+                <!-- Room Information Section -->
+                <div class="form-section">
+                    <h3>Room Details</h3>
+                    <div class="form-group">
+                        <label for="room-number">Room Number</label>
+                        <input type="number" id="room-number" name="room-number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="num-people">Number of People</label>
+                        <input type="number" id="num-people" name="num-people" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="check-in">Check-in Date & Time</label>
+                        <input type="datetime-local" id="check-in" name="check-in" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="check-out">Check-out Date & Time</label>
+                        <input type="datetime-local" id="check-out" name="check-out" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cost-room">Cost of Room</label>
+                        <input type="text" id="cost-room" name="cost-room" required>
+                    </div>
+                </div>
+    
+                <!-- Submit Button -->
+                <button type="submit" class="btn">Submit Reservation</button>
+            </form>
+        </div>
+    </section>
+    
+
+    <section id="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>LuxuryRides is dedicated to providing the most exquisite automotive experiences. Our fleet consists of the world's finest vehicles, meticulously maintained to ensure your journey is nothing short of extraordinary.</p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>Get in touch with us for any inquiries or special requests.</p>
+            <p>Email: info@luxuryrides.com</p>
+            <p>Phone: +1 (555) 123-4567</p>
+        </div>
+    </section>
+
+    <section id="inventory">
+        <div class="container">
+            <h2>Our Inventory</h2>
+            <div class="car-grid">
+                <div class="car-card" onclick="showCarDetails('Luxury Sedan', 'Experience unparalleled comfort and style.')">
+                    <img src="/api/placeholder/400/300?text=Luxury+Sedan" alt="Luxury Sedan">
+                    <h3>Luxury Sedan</h3>
+                    <p>Experience unparalleled comfort and style.</p>
+                </div>
+                <div class="car-card" onclick="showCarDetails('Sports Car', 'Feel the thrill of high-performance driving.')">
+                    <img src="/api/placeholder/400/300?text=Sports+Car" alt="Sports Car">
+                    <h3>Sports Car</h3>
+                    <p>Feel the thrill of high-performance driving.</p>
+                </div>
+                <div class="car-card" onclick="showCarDetails('SUV', 'Combine luxury with versatility.')">
+                    <img src="/api/placeholder/400/300?text=SUV" alt="SUV">
+                    <h3>SUV</h3>
+                    <p>Combine luxury with versatility.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 LuxuryRides. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Car Details Modal -->
+    <div id="car-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeCarDetails()">&times;</span>
+            <h2 id="car-title"></h2>
+            <p id="car-description"></p>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
