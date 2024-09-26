@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', () => {
     // Smooth scrolling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {

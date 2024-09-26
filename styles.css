@@ -222,13 +222,12 @@ h2 {
     margin-bottom: 1.5rem;
 }
 footer {
-    background: rgba(0, 0, 0, 0.8);
-    padding: 1.5rem 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 20px 0;
     text-align: center;
     color: #fff;
-    font-size: 0.9rem;
-    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.1);
 }
+
 @media screen and (max-width: 768px) {
     .menu-button-container {
         display: flex;
