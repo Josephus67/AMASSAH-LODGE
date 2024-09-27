@@ -160,6 +160,7 @@ nav a:hover {
     transition: background-color 0.3s ease-in-out;
     text-transform: uppercase;
     text-decoration: none;
+    border-radius: 80px;
 }
 .btn:hover {
     background: #00cccc;
@@ -261,4 +262,11 @@ footer {
     .hero h1 {
         font-size: 2.5rem;
     }
+}
+label{
+    color: aquamarine;
+}
+#first-name,#last-name,#guest-phone, #guest-email, #guest-address,#cost-room,#check-in, #check-out,#num-people, #room-number, #next-of-kin,#next-kin-phone{
+    border-radius: 70px;
+    width: 30%;
 }
