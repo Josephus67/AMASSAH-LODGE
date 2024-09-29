@@ -4,7 +4,7 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background: url('assets/backgroundImage.png') no-repeat center center/cover;
+    background: url('../assets/backgroundImage.png') no-repeat center center/cover;
     background-attachment: fixed;
     color: #333;
 }
