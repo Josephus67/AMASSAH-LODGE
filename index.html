@@ -8,88 +8,68 @@
 </head>
 <body>
     <header>
-        <div class="container">
-            <div class="logo">
-                <a href="#home">AMASSAH LODGE</a>
-            </div>
-            <label for="menu-toggle" class="visually-hidden"></label>
-            <input id="menu-toggle" type="checkbox" title="Toggle Menu" />
-            <label class="menu-button-container" for="menu-toggle">
-                <div class="menu-button"></div>
-            </label>
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="reservations.html">Reservations</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Our Rooms</a></li>
-                    <li><a href="#inventory">Inventory</a></li>
-                </ul>
-            </nav>
-        </div>
+        <nav>
+            <div class="logo">AMASSAH LODGE</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="reservations.html">Reservations</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#rooms">Our Rooms</a></li>
+                <li><a href="#inventory">Inventory</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <section id="home" class="hero">
-        <div class="hero-content">
+    <main>
+        <section id="home" class="hero">
             <h1>Welcome to AMASSAH LODGE</h1>
-            <p>Experience the epitome of automotive luxury</p>
-            <a href="reservations.html" class="btn">Book Now</a>
-        </div>
-    </section>
+            <p>Experience the epitome of luxury</p>
+            <a href="reservations.html" class="cta-button">Book Now</a>
+        </section>
 
-    
-                    
-    <section id="about">
-        <div class="container">
+        <section id="about">
             <h2>About Us</h2>
-            <p>LuxuryRides is dedicated to providing the most exquisite automotive experiences. Our fleet consists of the world's finest vehicles, meticulously maintained to ensure your journey is nothing short of extraordinary.</p>
-        </div>
-    </section>
+            <p>AMASSAH LODGE is dedicated to providing the most exquisite lodging experiences. Our rooms are meticulously maintained to ensure your stay is nothing short of extraordinary.</p>
+        </section>
 
-    <section id="contact">
-        <div class="container">
-            <h2>Contact Us</h2>
-            <p>Get in touch with us for any inquiries or special requests.</p>
-            <p>Email: info@luxuryrides.com</p>
-            <p>Phone: +1 (555) 123-4567</p>
-        </div>
-    </section>
-
-    <section id="inventory">
-        <div class="container">
-            <h2>Our Inventory</h2>
-            <div class="car-grid">
-                <div class="car-card" onclick="showCarDetails('Luxury Sedan', 'Experience unparalleled comfort and style.')">
-                    <img src="./assets/hotelimage1.png" alt="Luxury Sedan">
-                    <h3>Luxury Sedan</h3>
+        <section id="rooms">
+            <h2>Our Rooms</h2>
+            <div class="room-grid">
+                <div class="room-card" onclick="showRoomDetails('Luxury Suite', 'Experience unparalleled comfort and style.')">
+                    <img src="./assets/hotelimage1.png" alt="Luxury Suite">
+                    <h3>Luxury Suite</h3>
                     <p>Experience unparalleled comfort and style.</p>
                 </div>
-                <div class="car-card" onclick="showCarDetails('Sports Car', 'Feel the thrill of high-performance driving.')">
-                    <img src="./assets/hotelimage2.png" alt="Sports Car">
-                    <h3>Sports Car</h3>
-                    <p>Feel the thrill of high-performance driving.</p>
+                <div class="room-card" onclick="showRoomDetails('Deluxe Room', 'Feel the thrill of high-end amenities.')">
+                    <img src="./assets/hotelimage2.png" alt="Deluxe Room">
+                    <h3>Deluxe Room</h3>
+                    <p>Feel the thrill of high-end amenities.</p>
                 </div>
-                <div class="car-card" onclick="showCarDetails('SUV', 'Combine luxury with versatility.')">
-                    <img src="./assets/hotelimage3.png" alt="SUV">
-                    <h3>SUV</h3>
+                <div class="room-card" onclick="showRoomDetails('Family Suite', 'Combine luxury with versatility.')">
+                    <img src="./assets/hotelimage3.png" alt="Family Suite">
+                    <h3>Family Suite</h3>
                     <p>Combine luxury with versatility.</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p>Get in touch with us for any inquiries or special requests.</p>
+            <p>Email: info@amasssahlodge.com</p>
+            <p>Phone: +1 (555) 123-4567</p>
+        </section>
+    </main>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2024 AMASSAH. All rights reserved.</p>
-        </div>
+        <p>&copy; 2024 AMASSAH LODGE. All rights reserved.</p>
     </footer>
 
-    <!-- Car Details Modal -->
-    <div id="car-modal" class="modal">
+    <div id="room-modal" class="modal">
         <div class="modal-content">
-            <span class="close" onclick="closeCarDetails()">&times;</span>
-            <h2 id="car-title"></h2>
-            <p id="car-description"></p>
+            <span class="close-button" onclick="closeRoomDetails()">&times;</span>
+            <h2 id="room-title"></h2>
+            <p id="room-description"></p>
         </div>
     </div>
 
