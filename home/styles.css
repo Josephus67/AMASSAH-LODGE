@@ -342,3 +342,14 @@ footer {
 .modal.show {
     opacity: 1;
 }
+.social-media-icons {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    margin-top: 1rem;
+}
+i {
+    font-size: 34px; 
+    color: rgb(216, 57, 121); /* Change color */
+    margin: 10px; /* Add some space */
+  }
