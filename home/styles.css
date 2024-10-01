@@ -357,12 +357,13 @@ i {
     margin: 10px; /* Add some space */
   }
   .submit-message{
+    width: 130px;
     color: #00cccc;
     font-size: 1.5rem;
     text-align: center;
     margin-top: 1rem;
     border-radius: 15px;
-    padding: 15px;
+    padding: 12px;
     &:hover{
         background-color: aquamarine;
         color: #000;
@@ -382,15 +383,31 @@ i {
         font-size: 1rem;
     }
     .name-email-for-message input:focus{
-        border-color: #00cccc;
+        border-color: aquamarine;
         outline: none;
     }
     #message{
         height: 200px;
         width: 400px;
+        background-color: #ffffffad;
     }
     .message-form{
-        border-width: 10px;
-        height: 900px;
-        border-color: red;
+        height: 460px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px; 
+    }
+    .whole-form{
+        display: flex;
+        flex-direction: column;
+        width: 100%; 
+        max-width: 400px; 
+        padding: 20px;
+        background-color: #f7f7f775; 
+        border-radius: 10px; 
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    #name,#email {
+        background-color: rgba(255, 192, 203, 0.347);
     }
