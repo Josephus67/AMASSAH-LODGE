@@ -353,3 +353,41 @@ i {
     color: rgb(216, 57, 121); /* Change color */
     margin: 10px; /* Add some space */
   }
+  .submit-message{
+    color: #00cccc;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-top: 1rem;
+    border-radius: 15px;
+    padding: 15px;
+    &:hover{
+        background-color: aquamarine;
+        color: #000;
+        transition: background-color 1s ease;
+    }
+  }
+  .name-email-for-message{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+  }
+    .name-email-for-message input{
+        width: 100%;
+        padding: 0.5rem;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 1rem;
+    }
+    .name-email-for-message input:focus{
+        border-color: #00cccc;
+        outline: none;
+    }
+    #message{
+        height: 200px;
+        width: 400px;
+    }
+    .message-form{
+        border-width: 10px;
+        height: 900px;
+        border-color: red;
+    }
