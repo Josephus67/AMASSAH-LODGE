@@ -411,3 +411,7 @@ i {
     #name,#email {
         background-color: rgba(255, 192, 203, 0.347);
     }
+    h2,h3{
+        text-align: center;
+        color: rgba(127, 255, 212, 0.817);
+    }
