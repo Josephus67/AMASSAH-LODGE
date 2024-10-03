@@ -112,22 +112,22 @@ section h2 {
 
 /* Room Grid */
 .room-grid {
-    display: flex; /* Use flexbox for horizontal layout */
-    overflow-x: auto; /* Enable horizontal scrolling */
-    gap: 2rem; /* Space between the room cards */
-    padding: 1rem; /* Add some padding to make scrolling smoother */
-    scroll-snap-type: x mandatory; /* Optional: smooth snapping while scrolling */
+    display: flex; 
+    overflow-x: auto; 
+    gap: 2rem; 
+    padding: 1rem; 
+    scroll-snap-type: x mandatory; 
 }
 
 .room-card {
-    flex: 0 0 auto; /* Prevent the room cards from shrinking */
-    width: 300px; /* Set a fixed width for each room card */
+    flex: 0 0 auto; 
+    width: 340px; 
     background: rgba(255, 255, 255, 0.9);
     border-radius: 10px;
     overflow: hidden;
     transition: transform 0.3s ease;
     cursor: pointer;
-    scroll-snap-align: start; /* Optional: each card will snap into view */
+    scroll-snap-align: start; 
 }
 
 .room-card:hover {
