@@ -209,3 +209,30 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 100);
     }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const reviewForm = document.getElementById('review-form');
+    const reviewsContainer = document.getElementById('reviews-container');
+
+    reviewForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const rating = document.querySelector('input[name="stars"]:checked').value;
+        const comment = document.getElementById('review-text').value;
+
+        if (rating && comment) {
+            const newReview = document.createElement('div');
+            newReview.className = 'review';
+
+            const stars = '★'.repeat(rating) + '☆'.repeat(5 - rating);
+            newReview.innerHTML = `
+                <div class="stars">${stars}</div>
+                <p class="comment">${comment}</p>
+                <p class="author">— Anonymous Guest</p>
+            `;
+
+            reviewsContainer.appendChild(newReview);
+            reviewForm.reset();
+        }
+    });
+});

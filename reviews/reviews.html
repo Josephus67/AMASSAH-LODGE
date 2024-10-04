@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews</title>
+        <link rel="stylesheet" href="../home/styles.css">
+        <link rel="stylesheet" href="reviews.css">
+</head>
+<body>
+    <section id="reviews">
+        <h2>Guest Reviews</h2>
+        
+        <!-- Review form -->
+        <div class="review-form">
+            <h3>Rate Our Services</h3>
+            <form id="review-form">
+                <div class="rating">
+                    <label>
+                        <input type="radio" name="stars" value="1">
+                        <span class="icon">★</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="stars" value="2">
+                        <span class="icon">★</span>
+                        <span class="icon">★</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="stars" value="3">
+                        <span class="icon">★</span>
+                        <span class="icon">★</span>
+                        <span class="icon">★</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="stars" value="4">
+                        <span class="icon">★</span>
+                        <span class="icon">★</span>
+                        <span class="icon">★</span>
+                        <span class="icon">★</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="stars" value="5">
+                        <span class="icon">★</span>
+                        <span class="icon">★</span>
+                        <span class="icon">★</span>
+                        <span class="icon">★</span>
+                        <span class="icon">★</span>
+                    </label>
+                </div>
+                <textarea id="review-text" name="review" placeholder="Leave a comment..." required></textarea>
+                <button type="submit">Submit Review</button>
+            </form>
+        </div>
+    
+        <!-- Display reviews -->
+        <div id="reviews-container">
+            <h3>What Our Guests Say</h3>
+            <!-- Sample review -->
+            <div class="review">
+                <div class="stars">
+                    ★★★★☆
+                </div>
+                <p class="comment">Amazing service! The staff was friendly, and the room was perfect.</p>
+                <p class="author">— John Doe</p>
+            </div>
+        </div>
+    </section>
+     
+</body>
+</html>
