@@ -420,3 +420,16 @@ i {
         text-align: center;
         color: rgba(127, 255, 212, 0.817);
     }
+    #make-payment{
+        margin-left: 50%;
+        cursor: pointer;
+    }
+    #make-payment:hover{
+        background-color: aquamarine;
+        color: #000;
+        transition: background-color 1s ease;
+    }
+   .submit-and-payment-row{
+    display: flex;
+    flex-direction: row;
+   }
