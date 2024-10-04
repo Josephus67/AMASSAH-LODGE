@@ -413,7 +413,7 @@ i {
         border-radius: 10px; 
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
-    #name,#email {
+    .name-email-for-message #name,.name-email-for-message #email {
         background-color: rgba(255, 192, 203, 0.347);
     }
     h2,h3{
