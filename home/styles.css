@@ -30,9 +30,22 @@ header {
 
 nav {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: center;
     padding: 0 2rem;
+}
+.menu-and-logo{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+#hamburger-menu {
+    cursor: pointer;
+    &:hover{
+        color: #00cccc;
+        transform: rotate(90deg);
+        transition: 1s;
+    }
 }
 
 .logo {
@@ -63,7 +76,10 @@ nav {
 .nav-links a:hover {
     color: #00cccc;
 }
-
+.sidebar {
+    height: 25px;
+    width: 30px;
+}
 /* Main Content */
 main {
     padding-top: 80px; /* To account for fixed header */
