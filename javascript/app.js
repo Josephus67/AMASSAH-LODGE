@@ -404,3 +404,290 @@ document.addEventListener('DOMContentLoaded', () => {
     
     lazyImages.forEach(img => imageObserver.observe(img));
 });
+
+
+
+// Add these functions to your existing app.js
+
+// Chatbot functionality
+function initializeChatbot() {
+    const chatTrigger = document.getElementById('chat-trigger');
+    const chatbot = document.getElementById('chatbot');
+    const closeChat = document.getElementById('close-chat');
+    const sendMessage = document.getElementById('send-message');
+    const chatInput = document.getElementById('chat-input');
+    const chatMessages = document.getElementById('chatbot-messages');
+
+    const responses = {
+        'booking': 'To make a booking, please click the "Book Now" button or call us at +233 555-555-555.',
+        'location': 'We are located near St. Paul\'s Catholic Parish. You can find directions on our website.',
+        'pricing': 'Our room rates start from $100 per night. Special offers are available!',
+        'default': 'Thank you for your message. Our staff will get back to you shortly.'
+    };
+
+    chatTrigger.addEventListener('click', () => {
+        chatbot.style.display = 'flex';
+        chatTrigger.style.display = 'none';
+    });
+
+    closeChat.addEventListener('click', () => {
+        chatbot.style.display = 'none';
+        chatTrigger.style.display = 'block';
+    });
+
+    function addMessage(message, isUser = false) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = isUser ? 'user-message' : 'bot-message';
+        messageDiv.textContent = message;
+        chatMessages.appendChild(messageDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function getResponse(message) {
+        const lowerMessage = message.toLowerCase();
+        if (lowerMessage.includes('book') || lowerMessage.includes('reservation')) {
+            return responses.booking;
+        } else if (lowerMessage.includes('where') || lowerMessage.includes('location')) {
+            return responses.location;
+        } else if (lowerMessage.includes('price') || lowerMessage.includes('cost')) {
+            return responses.pricing;
+        }
+        return responses.default;
+    }
+
+    sendMessage.addEventListener('click', () => {
+        const message = chatInput.value.trim();
+        if (message) {
+            addMessage(message, true);
+            chatInput.value = '';
+            setTimeout(() => {
+                addMessage(getResponse(message));
+            }, 500);
+        }
+    });
+
+    chatInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            sendMessage.click();
+        }
+    });
+}
+
+// Enhanced Form Validation
+function validateForm(formElement) {
+    const fields = formElement.querySelectorAll('input, textarea');
+    let isValid = true;
+
+    fields.forEach(field => {
+        const value = field.value.trim();
+        const validationMessage = field.parentElement.querySelector('.validation-message');
+        
+        if (validationMessage) {
+            validationMessage.remove();
+        }
+
+        if (field.required && !value) {
+            showValidationMessage(field, 'This field is required');
+            isValid = false;
+        } else if (field.type === 'email' && !isValidEmail(value)) {
+            showValidationMessage(field, 'Please enter a valid email address');
+            isValid = false;
+        }
+    });
+
+    return isValid;
+}
+
+function showValidationMessage(field, message) {
+    const messageDiv = document.createElement('div');
+    messageDiv.className = 'validation-message';
+    messageDiv.textContent = message;
+    field.parentElement.appendChild(messageDiv);
+}
+
+function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+// Social Media Sharing
+function shareOnSocial(platform) {
+    const url = encodeURIComponent(window.location.href);
+    const text = encodeURIComponent('Check out my stay at AMASSAH LODGE!');
+    let shareUrl;
+
+    switch(platform) {
+        case 'facebook':
+            shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+            break;
+        case 'twitter':
+            shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${text}`;
+            break;
+        case 'instagram':
+            // Instagram doesn't support direct sharing via URL
+            showToast('Open Instagram app to share your experience');
+            return;
+    }
+
+    window.open(shareUrl, '_blank', 'width=600,height=400');
+}
+
+// Toast Notification System
+function showToast(message, duration = 3000) {
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.textContent = message;
+    document.body.appendChild(toast);
+
+    setTimeout(() => {
+        toast.classList.add('show');
+        setTimeout(() => {
+            toast.classList.remove('show');
+            setTimeout(() => {
+                toast.remove();
+            }, 300);
+        }, duration);
+    }, 100);
+}
+
+// Blog Post Modal
+function showBlogPost(postId) {
+    const posts = {
+        1: {
+            title: 'Top 5 Local Attractions',
+            content: `<h2>Must-Visit Places Near AMASSAH LODGE</h2>
+                     <p>1. St. Paul's Catholic Parish - A historic landmark...</p>
+                     <p>2. Local Market - Experience authentic culture...</p>
+                     <p>3. Nature Reserve - Perfect for hiking...</p>
+                     <p>4. Cultural Center - Learn about local traditions...</p>
+                     <p>5. Sunset Point - Best views in town...</p>`
+        },
+        2: {
+            title: 'New Room Service Menu',
+            content: `<h2>Enhanced Dining Experience</h2>
+                     <p>We're excited to introduce our new international menu...</p>
+                     <p>Featuring local delicacies and global cuisine...</p>
+                     <p>24/7 room service available...</p>`
+        }
+    };
+
+    const modal = document.createElement('div');
+    modal.className = 'modal fade-in';
+    modal.innerHTML = `
+        <div class="modal-content">
+            <span class="close-button" onclick="this.parentElement.parentElement.remove()">&times;</span>
+            <h2>${posts[postId].title}</h2>
+            ${posts[postId].content}
+        </div>
+    `;
+    document.body.appendChild(modal);
+}
+
+// Special Offers Booking Modal
+function showBookingModal(offerId) {
+    const offers = {
+        'weekend-getaway': {
+            title: 'Weekend Getaway Special',
+            discount: '20% OFF',
+            description: 'Book a weekend stay and enjoy 20% off plus complimentary breakfast'
+        },
+        'stay3pay2': {
+            title: 'Stay 3, Pay 2 Deal',
+            discount: 'FREE NIGHT',
+            description: 'Book 3 nights and get the third night absolutely free'
+        }
+    };
+
+    const offer = offers[offerId];
+    const modal = document.createElement('div');
+    modal.className = 'modal fade-in';
+    modal.innerHTML = `
+        <div class="modal-content booking-modal">
+            <span class="close-button" onclick="this.parentElement.parentElement.remove()">&times;</span>
+            <h2>${offer.title}</h2>
+            <div class="offer-details">
+                <span class="discount-badge">${offer.discount}</span>
+                <p>${offer.description}</p>
+            </div>
+            <form id="special-offer-form" onsubmit="handleSpecialOfferBooking(event, '${offerId}')">
+                <div class="form-group">
+                    <label for="check-in">Check-in Date</label>
+                    <input type="date" id="check-in" required>
+                </div>
+                <div class="form-group">
+                    <label for="check-out">Check-out Date</label>
+                    <input type="date" id="check-out" required>
+                </div>
+                <button type="submit" class="submit-button">Book Now</button>
+            </form>
+        </div>
+    `;
+    document.body.appendChild(modal);
+}
+
+// Analytics Integration
+function initializeAnalytics() {
+    // Track page views
+    logPageView();
+    
+    // Track user interactions
+    document.addEventListener('click', (e) => {
+        const target = e.target;
+        
+        if (target.classList.contains('offer-button')) {
+            logEvent('offer_click', {
+                offer_id: target.dataset.offerId
+            });
+        }
+        
+        if (target.classList.contains('share-btn')) {
+            logEvent('social_share', {
+                platform: target.dataset.platform
+            });
+        }
+    });
+
+    // Track form submissions
+    document.querySelectorAll('form').forEach(form => {
+        form.addEventListener('submit', (e) => {
+            logEvent('form_submission', {
+                form_id: form.id
+            });
+        });
+    });
+}
+
+function logPageView() {
+    // Implementation for page view tracking
+    console.log('Page view logged:', window.location.pathname);
+}
+
+function logEvent(eventName, params = {}) {
+    // Implementation for event tracking
+    console.log('Event logged:', eventName, params);
+}
+
+// Initialize all features when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    initializeChatbot();
+    initializeAnalytics();
+    
+    // Form validation
+    document.querySelectorAll('form').forEach(form => {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (validateForm(form)) {
+                // Show success message
+                const successMessage = document.createElement('div');
+                successMessage.className = 'success-message';
+                successMessage.textContent = 'Form submitted successfully!';
+                form.appendChild(successMessage);
+                
+                // Reset form after delay
+                setTimeout(() => {
+                    form.reset();
+                    successMessage.remove();
+                }, 3000);
+            }
+        });
+    });
+});
