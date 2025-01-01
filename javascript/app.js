@@ -236,3 +236,30 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+
+
+// Add this to your existing DOMContentLoaded event listener
+const hamburgerMenu = document.getElementById('hamburger-menu');
+const navLinks = document.querySelector('.nav-links');
+
+hamburgerMenu.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    hamburgerMenu.classList.toggle('hamburger-active');
+});
+
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('nav')) {
+        navLinks.classList.remove('active');
+        hamburgerMenu.classList.remove('hamburger-active');
+    }
+});
+
+// Close menu when clicking a link
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        hamburgerMenu.classList.remove('hamburger-active');
+    });
+});
