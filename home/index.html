@@ -104,6 +104,30 @@
                     <p>Combine luxury with versatility.</p>
                 </div>
             </div>
+             <!-- Room Filters Section -->
+    <div id="room-filters" class="filter-container">
+        <select id="price-filter">
+            <option value="all">All Prices</option>
+            <option value="100">Under $100</option>
+            <option value="200">Under $200</option>
+            <option value="300">Under $300</option>
+        </select>
+        
+        <select id="type-filter">
+            <option value="all">All Types</option>
+            <option value="luxury">Luxury</option>
+            <option value="standard">Standard</option>
+            <option value="family">Family</option>
+        </select>
+    </div>
+    
+    <!-- Toast Container -->
+    <div id="toast-container"></div>
+    
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay">
+        <div class="loader"></div>
+    </div>
         </section>
 
         <section id="contact">
@@ -170,6 +194,11 @@
             <p id="room-description"></p>
         </div>
     </div>
+
+
+
+
+   
 
     <script src="../javascript/app.js"></script>
 </body>

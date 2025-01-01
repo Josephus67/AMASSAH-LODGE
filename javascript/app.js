@@ -263,3 +263,144 @@ document.querySelectorAll('.nav-links a').forEach(link => {
         hamburgerMenu.classList.remove('hamburger-active');
     });
 });
+
+
+
+
+
+// === ADD TO app.js ===
+
+// Performance optimization - Debounced scroll handler
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// Enhanced room filtering system
+function initializeRoomFilter() {
+    const filterContainer = document.getElementById('room-filters');
+    if (!filterContainer) return;
+
+    filterContainer.addEventListener('change', (e) => {
+        const rooms = document.querySelectorAll('.room-card');
+        const selectedPrice = document.getElementById('price-filter').value;
+        const selectedType = document.getElementById('type-filter').value;
+
+        rooms.forEach(room => {
+            const price = room.dataset.price;
+            const type = room.dataset.type;
+            const showByPrice = selectedPrice === 'all' || price <= selectedPrice;
+            const showByType = selectedType === 'all' || type === selectedType;
+            room.style.display = showByPrice && showByType ? 'block' : 'none';
+        });
+    });
+}
+
+// Room availability checker
+function checkRoomAvailability(roomId, startDate, endDate) {
+    // In production, this would call your backend API
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve({
+                available: true,
+                price: 199.99,
+                totalNights: 3
+            });
+        }, 500);
+    });
+}
+
+// Enhanced form validation
+function enhancedFormValidation() {
+    const forms = document.querySelectorAll('form');
+    
+    forms.forEach(form => {
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Clear previous errors
+            form.querySelectorAll('.error-message').forEach(err => err.remove());
+            
+            let isValid = true;
+            
+            // Enhanced email validation
+            const emailInput = form.querySelector('input[type="email"]');
+            if (emailInput && !isValidEmail(emailInput.value)) {
+                showFieldError(emailInput, 'Please enter a valid email address');
+                isValid = false;
+            }
+            
+            // Phone validation
+            const phoneInput = form.querySelector('input[type="tel"]');
+            if (phoneInput && !isValidPhone(phoneInput.value)) {
+                showFieldError(phoneInput, 'Please enter a valid phone number');
+                isValid = false;
+            }
+            
+            // Date validation for bookings
+            const dateInputs = form.querySelectorAll('input[type="date"]');
+            dateInputs.forEach(input => {
+                const selectedDate = new Date(input.value);
+                const today = new Date();
+                if (selectedDate < today) {
+                    showFieldError(input, 'Please select a future date');
+                    isValid = false;
+                }
+            });
+            
+            if (isValid) {
+                // Show loading state
+                const submitBtn = form.querySelector('button[type="submit"]');
+                const originalText = submitBtn.textContent;
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Processing...';
+                
+                try {
+                    // Simulate API call
+                    await new Promise(resolve => setTimeout(resolve, 1000));
+                    showSuccessMessage(form, 'Successfully submitted!');
+                    form.reset();
+                } catch (error) {
+                    showErrorMessage(form, 'Something went wrong. Please try again.');
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = originalText;
+                }
+            }
+        });
+    });
+}
+
+// Add to the DOMContentLoaded event listener:
+document.addEventListener('DOMContentLoaded', () => {
+    initializeRoomFilter();
+    enhancedFormValidation();
+    
+    // Initialize tooltips
+    const tooltips = document.querySelectorAll('[data-tooltip]');
+    tooltips.forEach(element => {
+        new Tooltip(element);
+    });
+    
+    // Initialize lazy loading
+    const lazyImages = document.querySelectorAll('img[data-src]');
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.removeAttribute('data-src');
+                observer.unobserve(img);
+            }
+        });
+    });
+    
+    lazyImages.forEach(img => imageObserver.observe(img));
+});
