@@ -212,23 +212,6 @@
     </div>
 </section>
 
-<div id="chatbot" class="chatbot-container">
-    <div class="chatbot-header">
-        <h3>Chat with Us</h3>
-        <button id="close-chat">×</button>
-    </div>
-    <div class="chatbot-messages" id="chatbot-messages">
-        <div class="bot-message">Hello! How can I help you today?</div>
-    </div>
-    <div class="chatbot-input">
-        <input type="text" id="chat-input" placeholder="Type your message...">
-        <button id="send-message">Send</button>
-    </div>
-</div>
-<button id="chat-trigger" class="chat-trigger">
-    <i class="fas fa-comments"></i>
-</button>
-
 <!-- Add this before closing </main> tag -->
 <div class="social-share">
     <h3>Share Your Experience</h3>
@@ -279,7 +262,230 @@
     </div>
 
 
+   
+    <!-- Add this HTML inside the body tag -->
+<div class="chat-widget">
+    <div class="chat-header">
+        <h3>Chat Support</h3>
+        <button class="chat-close">&times;</button>
+    </div>
+    <div class="chat-messages">
+        <div class="message bot-message">
+            Hello! How can I help you today?
+        </div>
+    </div>
+    <div class="chat-input-area">
+        <input type="text" class="chat-input" placeholder="Type your message...">
+        <button class="chat-send">
+            <i class="fas fa-paper-plane"></i>
+        </button>
+    </div>
+</div>
 
+<button class="chat-trigger">
+    <i class="fas fa-comments"></i>
+    <span class="chat-badge">1</span>
+</button>
+
+<style>
+.chat-widget {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    width: 300px;
+    height: 400px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    display: none;
+    flex-direction: column;
+    z-index: 1000;
+}
+
+.chat-widget.active {
+    display: flex;
+}
+
+.chat-header {
+    padding: 15px;
+    background: #2c3e50;
+    color: white;
+    border-radius: 10px 10px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.chat-messages {
+    flex-grow: 1;
+    padding: 15px;
+    overflow-y: auto;
+}
+
+.message {
+    margin-bottom: 10px;
+    padding: 8px 12px;
+    border-radius: 15px;
+    max-width: 80%;
+}
+
+.bot-message {
+    background: #f0f0f0;
+    margin-right: auto;
+}
+
+.user-message {
+    background: #2c3e50;
+    color: white;
+    margin-left: auto;
+}
+
+.chat-input-area {
+    padding: 15px;
+    border-top: 1px solid #eee;
+    display: flex;
+    gap: 10px;
+}
+
+.chat-input {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    outline: none;
+}
+
+.chat-send {
+    background: #2c3e50;
+    color: white;
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.chat-trigger {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #2c3e50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.chat-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: red;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+</style>
+
+<script>
+class ChatSupport {
+    constructor() {
+        this.widget = document.querySelector('.chat-widget');
+        this.trigger = document.querySelector('.chat-trigger');
+        this.closeBtn = document.querySelector('.chat-close');
+        this.input = document.querySelector('.chat-input');
+        this.sendBtn = document.querySelector('.chat-send');
+        this.messagesContainer = document.querySelector('.chat-messages');
+        this.badge = document.querySelector('.chat-badge');
+        
+        this.isOpen = false;
+        this.responses = {
+            'hello': 'Hi there! How can I help you today?',
+            'rooms': 'We have Luxury Suites, Deluxe Rooms, and Family Suites available.',
+            'booking': 'You can book a room through our website or call us at +233 555-555-555.',
+            'location': 'We are located near St. Paul\'s Catholic Parish.',
+            'price': 'Our room rates start from $100 per night.',
+            'default': 'Thank you for your message. How can I assist you further?'
+        };
+
+        this.initializeEventListeners();
+    }
+
+    initializeEventListeners() {
+        this.trigger.addEventListener('click', () => this.toggleChat());
+        this.closeBtn.addEventListener('click', () => this.toggleChat());
+        this.sendBtn.addEventListener('click', () => this.sendMessage());
+        this.input.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') this.sendMessage();
+        });
+    }
+
+    toggleChat() {
+        this.isOpen = !this.isOpen;
+        this.widget.classList.toggle('active');
+        this.trigger.style.display = this.isOpen ? 'none' : 'flex';
+        if (this.isOpen) {
+            this.input.focus();
+            this.badge.style.display = 'none';
+        }
+    }
+
+    sendMessage() {
+        const message = this.input.value.trim();
+        if (!message) return;
+
+        this.addMessage(message, true);
+        this.input.value = '';
+
+        setTimeout(() => {
+            const response = this.generateResponse(message);
+            this.addMessage(response, false);
+        }, 500);
+    }
+
+    addMessage(text, isUser) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `message ${isUser ? 'user-message' : 'bot-message'}`;
+        messageDiv.textContent = text;
+        
+        this.messagesContainer.appendChild(messageDiv);
+        this.messagesContainer.scrollTop = this.messagesContainer.scrollHeight;
+    }
+
+    generateResponse(message) {
+        const lowerMessage = message.toLowerCase();
+        if (lowerMessage.includes('hello') || lowerMessage.includes('hi')) return this.responses.hello;
+        if (lowerMessage.includes('room') || lowerMessage.includes('suite')) return this.responses.rooms;
+        if (lowerMessage.includes('book')) return this.responses.booking;
+        if (lowerMessage.includes('where') || lowerMessage.includes('location')) return this.responses.location;
+        if (lowerMessage.includes('price') || lowerMessage.includes('cost')) return this.responses.price;
+        return this.responses.default;
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    new ChatSupport();
+});
+</script>
 
    
 
