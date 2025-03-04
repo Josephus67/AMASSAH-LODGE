@@ -1196,3 +1196,7 @@ function initializeSearch() {
 document.addEventListener('DOMContentLoaded', function() {
     initializeSearch();
 });
+
+
+
+//DARK MODE
