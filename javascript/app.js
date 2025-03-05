@@ -893,3 +893,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
 //DARK MODE
 // isues with git 
+// same issues
