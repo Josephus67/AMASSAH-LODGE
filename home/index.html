@@ -320,7 +320,7 @@ class ChatSupport {
         this.isOpen = false;
         this.responses = {
             'hello': 'Hi there! How can I help you today?',
-            'room': 'We have Luxury Suites, Deluxe Rooms, and Family Suites available.',
+            'rooms': 'We have Luxury Suites, Deluxe Rooms, and Family Suites available.',
             'booking': 'You can book a room through our website or call us at +233 555-555-555.',
             'location': 'We are located near St. Paul\'s Catholic Parish.',
             'price': 'Our room rates start from $100 per night.',
@@ -374,7 +374,7 @@ class ChatSupport {
     generateResponse(message) {
         const lowerMessage = message.toLowerCase();
         if (lowerMessage.includes('hello') || lowerMessage.includes('hi')) return this.responses.hello;
-        if (lowerMessage.includes('room') || lowerMessage.includes('suite')) return this.responses.rooms;
+        if (lowerMessage.includes('rooms') || lowerMessage.includes('suite')) return this.responses.rooms;
         if (lowerMessage.includes('book')) return this.responses.booking;
         if (lowerMessage.includes('where') || lowerMessage.includes('location')) return this.responses.location;
         if (lowerMessage.includes('price') || lowerMessage.includes('cost')) return this.responses.price;
