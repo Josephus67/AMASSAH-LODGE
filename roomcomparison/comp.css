@@ -1,0 +1,55 @@
+.room-comparison-section {
+    background-color: #f9f9f9;
+    padding: 2rem;
+    font-family: 'Arial', sans-serif;
+}
+
+.comparison-container {
+    display: flex;
+    gap: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.room-selection {
+    width: 250px;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.room-checkboxes {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.comparison-table {
+    flex-grow: 1;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    padding: 1rem;
+    min-height: 300px;
+}
+
+.comparison-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding: 0.5rem 0;
+}
+
+.feature-highlight {
+    font-weight: bold;
+    color: #007bff;
+}
+
+.price-tag {
+    font-size: 1.2rem;
+    color: #28a745;
+    font-weight: bold;
+}
