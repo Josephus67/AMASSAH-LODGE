@@ -11,7 +11,7 @@ class ChatSupport {
         
         this.isOpen = false;
         this.responses = {
-            'hello': 'Hi there! How can I help you today?',
+            'hello': 'Hi there! Welcome to The Amassah Lodge. How can I help you today?',
             'rooms': 'We have Luxury Suites, Deluxe Rooms, and Family Suites available. Would you like to know more about any specific room?',
             'booking': 'You can book a room through our website or call us at +233 555-555-555. Would you like me to help you with the booking process?',
             'location': 'We are located near St. Paul\'s Catholic Parish. Would you like directions?',
