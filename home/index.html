@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../roomcomparison/comp.css">
     <link rel="stylesheet" href="../chatbot/bot.css">
+    <link rel="stylesheet" href="../searchbar/searchbar.css">
 </head>
 <body>
     <header>
@@ -27,22 +28,24 @@
                 <li><a href="#inventory">Inventory</a></li>
                 <li><a href="../reviews/reviews.html">Reviews</a></li>
             </ul>
-            <!-- Add this inside the nav element, after the nav-links: SEARCHBAR -->
-<div class="search-container">
-    <form id="search-form">
-        <input type="text" id="search-input" placeholder="Search rooms, services...">
-        <button type="submit" class="search-button">
-            <i class="fas fa-search"></i>
-        </button>
-    </form>
-    <div id="search-results" class="search-results"></div>
-</div>
+
             </div>
         </nav>
     </header>
-
+           
     <main>
+         <!-- Add this inside the nav element, after the nav-links: SEARCHBAR -->
+         <div class="search-container">
+            <form id="search-form">
+                <input type="text" id="search-input" placeholder="Search rooms, services...">
+                <button type="submit" class="search-button">
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
+            <div id="search-results" class="search-results"></div>
+        </div>
         <section id="home" class="hero">
+            
             <h1>Welcome to AMASSAH LODGE</h1>
             <p>Experience the epitome of luxury</p>
             <a href="../reservations/reservations.html" class="cta-button">Book Now</a>
