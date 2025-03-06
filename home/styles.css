@@ -832,3 +832,14 @@ i {
     border-radius: 5px;
     margin-top: 1rem;
 }
+
+
+/* Add this to your styles.css file */
+@keyframes highlightSection {
+    0% { background-color: rgba(0, 123, 255, 0.1); }
+    100% { background-color: transparent; }
+}
+
+.highlight {
+    animation: highlightSection 2s ease-out;
+}
