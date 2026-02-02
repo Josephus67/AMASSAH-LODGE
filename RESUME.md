@@ -1,7 +1,7 @@
 # BAWAH JOSEPHUS
 **Computer Science Student | Front-End Developer | Machine Learning Engineer**
 
-📧 jbawah002@st.ug.edu.gh | 🔗 [LinkedIn](https://www.linkedin.com/in/bawah-josephus) | 🐦 [Twitter](https://twitter.com/BawahJosephus) | 💻 [GitHub](https://github.com/Josephus67)
+📧 jbawah002@st.ug.edu.gh | 🔗 [LinkedIn](https://www.linkedin.com/in/bawah-josephus) | 🐦 [Twitter](https://twitter.com/BawahJosephus) | 💻 [GitHub](https://github.com/Josephus67) | 🌐 [Portfolio](https://josephus67.io)
 
 ---
 
@@ -40,7 +40,7 @@
 ## 🚀 PROJECTS
 
 ### Heart Disease Prediction System
-*Python, Flask, Docker, Machine Learning* | [Repository](https://github.com/Josephus67/MLZoomcamp-Midterm-Project)
+*Python, Flask, Docker, Machine Learning* | [Repository](https://github.com/Josephus67/MLZoomcamp-Midterm-Project) | [Live Demo](https://mlzoomcamp-midterm-project-production.up.railway.app)
 
 - Developed a machine learning model to predict heart disease with **90-95% ROC-AUC** and **85-90% accuracy**
 - Trained and evaluated multiple models: Logistic Regression, Random Forest, Gradient Boosting, CatBoost, and Neural Networks
@@ -49,13 +49,29 @@
 - Containerized the application using Docker for seamless deployment
 - Deployed to Railway cloud platform for production accessibility
 
+### Plant Disease Classifier
+*Python, FastAPI, TensorFlow/Keras, Xception* | [Repository](https://github.com/Josephus67/Term-Project)
+
+- Built a full-stack web application for identifying plant diseases using deep learning
+- Implemented **38 disease classes** across multiple plant species (Apple, Tomato, Potato, Corn, Grape, etc.)
+- Used **Xception architecture** with transfer learning for image classification
+- Developed FastAPI backend with real-time predictions and confidence scores
+- Created responsive web interface with drag-and-drop image upload functionality
+
 ### AMASSAH Lodge Website
 *HTML, CSS, JavaScript* | [Repository](https://github.com/Josephus67/AMASSAH-LODGE)
 
-- Designed and developed a full-featured hotel booking website
+- Designed and developed a full-featured hotel booking website hosted at [josephus67.io](https://josephus67.io)
 - Implemented room comparison features, reservation system, and chatbot integration
 - Created responsive UI with interactive JavaScript components
 - Built custom search functionality for enhanced user experience
+
+### Amassah Lodge GH (Modern SPA Rewrite)
+*TypeScript, React, Vite, TailwindCSS* | [Repository](https://github.com/Josephus67/Amassah-Lodge-GH)
+
+- Modern single-page application rewrite of the hotel booking website
+- Built with TypeScript, React, and TailwindCSS for improved developer experience
+- Configured for Vercel deployment
 
 ### Portfolio Website
 *TypeScript, React* | [Repository](https://github.com/Josephus67/Portfolio)
@@ -63,6 +79,22 @@
 - Built a modern portfolio website using TypeScript and React
 - Showcases projects, skills, and professional experience
 - Implemented responsive design for optimal viewing across devices
+
+### Ghana Tech Online - Learning Management System
+*Next.js, TypeScript, PostgreSQL, Clerk* | [Repository](https://github.com/Josephus67/One-Million-Coders)
+
+- Comprehensive online learning platform built with Next.js and TypeScript
+- Features course management with lessons and videos
+- Implemented exam system with certificate generation
+- User authentication with Clerk, progress tracking, and admin dashboard
+
+### Disaster Response Multi-Agent System
+*Python, SPADE, XMPP* | [Repository](https://github.com/Josephus67/Designing-Intelligent-Agents)
+
+- Developed intelligent agent system for disaster response coordination
+- Implemented FIPA-ACL communication patterns for multi-agent collaboration
+- Built request-response and publish-subscribe alert systems
+- University of Ghana coursework for DCIT 403 – Designing Intelligent Agents
 
 ### MNIST Digit Classification with YOLOv8
 *Python, YOLOv8, Deep Learning* | [Repository](https://github.com/Josephus67/MNIST-DIGIT-CLASSIFICATION-YOLOV8)
@@ -76,6 +108,23 @@
 
 - Contributed to educational platform promoting coding literacy
 - Developed frontend components using TypeScript and React
+
+---
+
+## 🏢 ORGANIZATION PROJECTS (ug-cs)
+
+### HOP Delivery Platform - Multi-App Ecosystem
+*TypeScript, React, Mobile Development* | [Organization](https://github.com/ug-cs)
+
+A comprehensive delivery platform ecosystem developed as part of University of Ghana CS projects:
+
+- **[HopDelivery-GIG](https://github.com/ug-cs/HopDelivery-GIG)** - Main delivery service application
+- **[Hop-C-InventoryHub](https://github.com/ug-cs/Hop-C-InventoryHub)** - Inventory management system
+- **[HopDeliveryPartnerR](https://github.com/ug-cs/HopDeliveryPartnerR)** - Partner/rider application
+- **[HopDeliveryMINIHUB](https://github.com/ug-cs/HopDeliveryMINIHUB)** - Mini hub management
+- **[HOPconsumer](https://github.com/ug-cs/HOPconsumer)** - Consumer-facing application
+
+---
 
 ### Healthcare Management System
 *Python* | [Repository](https://github.com/Josephus67/HEALTHCARE_SYSTEM)
@@ -126,6 +175,7 @@
 - Mobile Application Development (DCIT 202)
 - Data Structures & Algorithms (DCIT 204)
 - Computational Mathematics (MATH 220)
+- Designing Intelligent Agents (DCIT 403)
 
 ---
 
